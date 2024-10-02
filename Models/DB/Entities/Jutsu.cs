@@ -17,5 +17,6 @@ namespace ninja_br_rpg_MVC.Models.DB.Entities
         public bool dv_exclusivo_clan { get; set; } = false;
         public bool dv_exclusivo_portao { get; set; } = false;
         public bool dv_exclusivo_tipo { get; set; } = false;
+        public string? img_url_jutsu { get; set; } = "";
     }
 }

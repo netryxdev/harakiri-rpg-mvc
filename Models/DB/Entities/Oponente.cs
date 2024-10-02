@@ -11,5 +11,6 @@ namespace ninja_br_rpg_MVC.Models.DB.Entities
         public int id_tipo_oponente { get; set; }
         public int recompensa_dinheiro { get; set; }
         public int recompensa_xp { get; set; }
+        public string img_url_oponente { get; set; }
     }
 }

@@ -15,8 +15,9 @@ namespace ninja_br_rpg_MVC.Models.DB.Context
         public DbSet<MissaoTipo> MissaoTipos { get; set; }
         public DbSet<Missao> Missoes { get; set; }
         public DbSet<Atributo> Atributos { get; set; }
+        public DbSet<AtributoChar> AtributosChar { get; set; }
         public DbSet<Clan> Clans { get; set; }
-        public DbSet<KekkeiGenkais> KekkeiGenkais { get; set; }
+        public DbSet<KekkeiGenkai> KekkeiGenkais { get; set; }
         public DbSet<JutsuTipo> JutsuTipos { get; set; }
         public DbSet<Jutsu> Jutsus { get; set; }
         public DbSet<ClanJutsu> ClanJutsus { get; set; }
@@ -29,7 +30,6 @@ namespace ninja_br_rpg_MVC.Models.DB.Context
         public DbSet<OponenteJutsu> OponenteJutsus { get; set; }
         public DbSet<GrindLimitador> GrindLimitadores { get; set; }
         public DbSet<MissaoPassivaUsuarioControle> MissaoPassivaUsuarioControles { get; set; }
-
 
     }
 }

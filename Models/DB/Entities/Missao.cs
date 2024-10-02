@@ -15,5 +15,6 @@ namespace ninja_br_rpg_MVC.Models.DB.Entities
         public decimal dinheiro_missao { get; set; } = 0;
         public TimeSpan Duration { get; set; }
         public int? id_oponente { get; set; }
+        public string? img_url_missao { get; set; } = "";
     }
 }

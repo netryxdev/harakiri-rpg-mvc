@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ninja_br_rpg-MVC", "ninja_br_rpg-MVC.csproj", "{A662CA4F-E67F-4F4D-B5E3-16E821EC145F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A662CA4F-E67F-4F4D-B5E3-16E821EC145F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A662CA4F-E67F-4F4D-B5E3-16E821EC145F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A662CA4F-E67F-4F4D-B5E3-16E821EC145F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A662CA4F-E67F-4F4D-B5E3-16E821EC145F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {633B45B5-AFAF-40E3-B04A-32ACA24D3757}
+	EndGlobalSection
+EndGlobal

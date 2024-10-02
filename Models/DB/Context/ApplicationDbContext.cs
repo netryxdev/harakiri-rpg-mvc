@@ -31,5 +31,6 @@ namespace ninja_br_rpg_MVC.Models.DB.Context
         public DbSet<GrindLimitador> GrindLimitadores { get; set; }
         public DbSet<MissaoPassivaUsuarioControle> MissaoPassivaUsuarioControles { get; set; }
 
+
     }
 }

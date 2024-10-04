@@ -1,0 +1,23 @@
+﻿@model ninja_br_rpg_MVC.Models.Pages.Cadastro.CadastroViewModel;
+
+<h2>Registrar-se</h2>
+
+<form asp-action="Cadastrar" method="post">
+    <div class="form-group">
+        <label asp-for="nm_usuario"></label>
+        <input asp-for="nm_usuario" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="nm_email"></label>
+        <input asp-for="nm_email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="nm_senha"></label>
+        <input asp-for="nm_senha" type="password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="nm_senha_confirma"></label>
+        <input asp-for="nm_senha_confirma" type="password" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar-se</button>
+</form>

@@ -1,8 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<h2>Bem-vindo à sua área inicial</h2>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<p>Aqui você verá o resumo do seu personagem, missões, e status.</p>
+
+<a asp-controller="Missions" asp-action="Index" class="btn btn-primary">Ver Missões</a>
+<a asp-controller="Profile" asp-action="Index" class="btn btn-secondary">Perfil</a>

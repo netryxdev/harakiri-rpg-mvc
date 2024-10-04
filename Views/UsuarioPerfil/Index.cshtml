@@ -1,0 +1,14 @@
+﻿@model ninja_br_rpg_MVC.Models.Pages.UsuarioPerfil.UsuarioPerfilViewModel;
+
+<h2>Seu Perfil</h2>
+
+<p><strong>Nome:</strong> @Model.nm_usuario</p>
+
+@{ 
+    foreach (var usuarioChar in @Model.usuarioCharList)
+    {
+    <p><strong>Personagem: </strong> @usuarioChar</p>
+    }
+}
+
+<a asp-action="Edit" class="btn btn-primary">Editar Perfil</a>

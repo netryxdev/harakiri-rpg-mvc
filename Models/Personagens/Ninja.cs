@@ -24,7 +24,7 @@ namespace ninja_br_rpg_MVC.Models.Personagens
 
             // Cálculo de crítico e evasão
             Critico = 5 + (Agilidade / 5);
-            Miss = 3 + (Agilidade / 10);
+            Evasao = 3 + (Agilidade / 10);
         }
     }
 

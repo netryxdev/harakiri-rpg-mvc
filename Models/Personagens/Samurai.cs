@@ -22,7 +22,7 @@
 
             // Cálculo de crítico e evasão
             Critico = 5 + (Agilidade / 10);
-            Miss = 3 + (Agilidade / 20);
+            Evasao = 3 + (Agilidade / 20);
         }
     }
 }

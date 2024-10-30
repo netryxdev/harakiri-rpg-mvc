@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ninja_br_rpg-MVC", "ninja_br_rpg-MVC.csproj", "{A662CA4F-E67F-4F4D-B5E3-16E821EC145F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "harakiri-rpg-mvc", "harakiri-rpg-mvc.csproj", "{A662CA4F-E67F-4F4D-B5E3-16E821EC145F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

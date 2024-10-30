@@ -1,18 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ninja_br_rpg_MVC.Models.Pages.Cadastro;
+using harakiri_rpg.Models.Pages.Cadastro;
+using harakiri_rpg.Services.Interfaces;
+using harakiri_rpg.Models.DB;
 
-namespace ninja_br_rpg_MVC.Controllers
+namespace harakiri_rpg.Controllers
 {
     public class CadastroController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ApplicationDbContext _context;
+        private readonly IUsuarioService _usuarioService;
 
-        public CadastroController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public CadastroController(ApplicationDbContext context, IUsuarioService usuarioService)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _context = context;
+            _usuarioService = usuarioService;
         }
 
         // GET: Register
@@ -24,27 +26,19 @@ namespace ninja_br_rpg_MVC.Controllers
         // POST: Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Cadastrar(CadastroViewModel model)
+        public IActionResult Index(CadastroViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                var user = new IdentityUser { UserName = model.nm_usuario, Email = model.nm_email};
-                var result = await _userManager.CreateAsync(user, model.nm_senha);
 
-                if (result.Succeeded)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
+            if(!ModelState.IsValid)
+            {
+                // desenvolver um display message generico para erro
             }
-            return View(model);
+
+            _usuarioService.CriarUsuario(model);
+
+            // desenvolver um display message generico para SUCESSO
+
+            return RedirectToAction("Index");
         }
     }
 }

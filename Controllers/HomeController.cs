@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using ninja_br_rpg_MVC.Models;
+using harakiri_rpg.Models;
 using System.Diagnostics;
 
-namespace ninja_br_rpg_MVC.Controllers
+namespace harakiri_rpg.Controllers
 {
     public class HomeController : Controller
     {

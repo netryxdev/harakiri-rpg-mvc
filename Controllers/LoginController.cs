@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ninja_br_rpg_MVC.Models.Pages.Login;
+using harakiri_rpg.Models.Pages.Login;
 
-namespace ninja_br_rpg_MVC.Controllers
+namespace harakiri_rpg.Controllers
 {
     public class LoginController : Controller
     {
@@ -26,7 +26,7 @@ namespace ninja_br_rpg_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(model.nm_email, model.nm_senha, model.dv_lembrar, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {

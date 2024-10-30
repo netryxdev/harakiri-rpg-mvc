@@ -1,4 +1,6 @@
-﻿namespace ninja_br_rpg_MVC.Models.Personagens
+﻿using harakiri_rpg.Models.Classes;
+
+namespace harakiri_rpg.Models.Classes
 {
     public class Samurai : BaseChar
     {

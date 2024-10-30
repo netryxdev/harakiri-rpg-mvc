@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using harakiri_rpg.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ninja_br_rpg_MVC.Models.DB.Entities;
-using ninja_br_rpg_MVC.Models.Pages.UsuarioPerfil;
+using harakiri_rpg.Models.DB;
+using harakiri_rpg.Models.Pages.UsuarioPerfil;
 
-namespace ninja_br_rpg_MVC.Controllers
+namespace harakiri_rpg.Controllers
 {
     public class UsuarioPerfilController : Controller
     {
@@ -14,21 +15,21 @@ namespace ninja_br_rpg_MVC.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var usuario = await _userManager.GetUserAsync(Usuario); // verificar como usar aqui 
-            if (usuario == null)                                    // Ou usar procedure mesmo
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Index()
+        //{
+        //    var usuario = await _userManager.GetUserAsync(Usuario); // verificar como usar aqui 
+        //    if (usuario == null)                                    // Ou usar procedure mesmo
+        //    {
+        //        return NotFound();
+        //    }
 
-            var model = new UsuarioPerfilViewModel
-            {
-                nm_usuario = usuario.nm_usuario,
-                usuarioCharList = usuario.usuarioCharList,
-            };
+        //    var model = new UsuarioPerfilViewModel
+        //    {
+        //        nm_usuario = usuario.nm_usuario,
+        //        usuarioCharList = usuario.usuarioCharList,
+        //    };
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ninja_br_rpg_MVC.Models.Personagens
+﻿namespace harakiri_rpg.Models.Classes
 {
     public abstract class BaseChar
     {

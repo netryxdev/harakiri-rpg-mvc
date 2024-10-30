@@ -1,4 +1,4 @@
-namespace ninja_br_rpg_MVC.Models
+namespace harakiri_rpg.Models
 {
     public class ErrorViewModel
     {

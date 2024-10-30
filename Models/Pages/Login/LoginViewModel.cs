@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ninja_br_rpg_MVC.Models.Pages.Login
+namespace harakiri_rpg.Models.Pages.Login
 {
     public class LoginViewModel
     {
@@ -13,8 +13,8 @@ namespace ninja_br_rpg_MVC.Models.Pages.Login
         [DataType(DataType.Password)]
         public string nm_senha { get; set; } = string.Empty;
 
-        [Display(Name = "E-mail")]
-        public bool lembrar { get; set; }
+        [Display(Name = "Lembrar-me")]
+        public bool dv_lembrar { get; set; }
     }
 
 }

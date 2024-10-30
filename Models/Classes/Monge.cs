@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using harakiri_rpg.Models.Classes;
 
-namespace ninja_br_rpg_MVC.Models.Personagens
+namespace harakiri_rpg.Models.Classes
 {
     public class Monge : BaseChar
     {

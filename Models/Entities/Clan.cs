@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ninja_br_rpg_MVC.Models.DB.Entities
+namespace harakiri_rpg.Models.Entities
 {
     [Table("t_clan")]
     public class Clan

@@ -1,7 +1,28 @@
+using harakiri_rpg.Services.Interfaces;
+using harakiri_rpg.Services;
+using Microsoft.EntityFrameworkCore;
+using System;
+using harakiri_rpg.Models.DB;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+DotNetEnv.Env.Load();
+
+var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
+// Para funcionar rodando o docker, seguir estes passos? 
+//https://forums.docker.com/t/container-cannot-connect-to-the-hosts-mysql-database/3493/5
+//testar se funciona conectar em banco remoto rodando no docker
+
+// Nao funciona conectar em banco localmente/localhost rodando no docker, so no http/https
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(connectionString,
+    ServerVersion.AutoDetect(connectionString)));
+
+// Registro de serviços customizados
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
 

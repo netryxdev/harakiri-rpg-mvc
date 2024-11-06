@@ -24,7 +24,7 @@ namespace harakiri_rpg.Models.Pages.Cadastro
         [Compare("nm_senha", ErrorMessage = "As senhas não coincidem.")]
         public string nm_senha_confirma { get; set; } = string.Empty;
 
-        [Required]
+        [Display(Name = "Celular"), Required]
         [DataType(DataType.PhoneNumber)]
         public string nr_celular {  get; set; } = string.Empty;
 

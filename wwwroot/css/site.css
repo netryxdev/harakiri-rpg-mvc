@@ -18,5 +18,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #070223; /* Roxo escuro para o fundo */
+    color: #d4d4d4; /* Cinza claro para o texto */
 }

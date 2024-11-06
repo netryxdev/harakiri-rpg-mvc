@@ -1,0 +1,83 @@
+﻿/* Fundo principal do site */
+.bg-main-harakiri {
+    background-color: #070223; /* Fundo escuro */
+    color: #dcddde;
+}
+
+/* Card de formulário */
+.card-harakiri {
+    background-color: #1F1C40; /* Cinza escuro */
+    color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Campos de entrada */
+.form-control {
+    background-color: #1F1C40; /* Cor de fundo dos campos */
+    color: #FFFFFF; /* Cor do texto */
+    border: 1px solid #444; /* Cor da borda */
+    border-radius: 4px;
+}
+
+    /* Remover o efeito branco ao focar no campo */
+    .form-control:focus {
+        background-color: #1F1C40; /* Manter a mesma cor ao focar */
+        color: #FFFFFF;
+        outline: none;
+        border-color: #5865f2; /* Cor da borda para foco */
+    }
+
+/* Botão roxo estilo harakiri */
+.btn-primary {
+    background-color: #5865f2;
+    border-color: #5865f2;
+}
+
+    .btn-primary:hover {
+        background-color: #4752C4; /* Tom mais escuro para o hover */
+    }
+
+.btn-success {
+    background-color: #A6FF00;
+    color: #07021C;
+}
+
+/* Estilos dos inputs */
+.bg-harakiri-input {
+    background-color: #1F1C40; /* Cinza mais escuro */
+    border: 1px solid #4f545c;
+    color: #dcddde;
+    border-color: #4C4B76;
+}
+
+/* Botão azul no estilo harakiri */
+.btn-harakiri-primary {
+    background-color: #5865f2;
+    border-color: #5865f2;
+    color: white;
+}
+
+    .btn-harakiri-primary:hover {
+        background-color: #4752c4;
+        border-color: #4752c4;
+    }
+
+/* Links com azul claro */
+.link-harakiri {
+    color: #00b0f4;
+    text-decoration: none;
+}
+
+    .link-harakiri:hover {
+        color: #00b0f4;
+        text-decoration: underline;
+    }
+
+.text-sucess {
+    color: #A6FF00;
+
+}

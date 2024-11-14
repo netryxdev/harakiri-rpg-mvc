@@ -1,11 +1,18 @@
-﻿/* Fundo principal do site */
-.bg-main-harakiri {
+﻿/* Sufixo ct significa Custom */
+
+/* Fundo principal do site */
+.bg-main-ct {
     background-color: #070223; /* Fundo escuro */
     color: #dcddde;
 }
 
+.bg-header-ct {
+    background-color: #1F1C40 !important;
+    color: #7939E1;
+}
+
 /* Card de formulário */
-.card-harakiri {
+.card-ct {
     background-color: #1F1C40; /* Cinza escuro */
     color: #FFFFFF;
     padding: 2rem;
@@ -42,29 +49,20 @@
     }
 
 .btn-success {
-    background-color: #A6FF00;
-    color: #07021C;
+    background-color: #00ff6f;
+/*    color: #E4F7EE;*/
+    /*    background-color: #1BB76E;*/
+    /*    background-color: #A6FF00;*/
+        color: #4C4B76;
 }
 
 /* Estilos dos inputs */
-.bg-harakiri-input {
+.bg-input-ct {
     background-color: #1F1C40; /* Cinza mais escuro */
     border: 1px solid #4f545c;
     color: #dcddde;
     border-color: #4C4B76;
 }
-
-/* Botão azul no estilo harakiri */
-.btn-harakiri-primary {
-    background-color: #5865f2;
-    border-color: #5865f2;
-    color: white;
-}
-
-    .btn-harakiri-primary:hover {
-        background-color: #4752c4;
-        border-color: #4752c4;
-    }
 
 /* Links com azul claro */
 .link-harakiri {
@@ -79,5 +77,13 @@
 
 .text-sucess {
     color: #A6FF00;
+}
 
+.title-color {
+    color: #98a1ff !important;
+    text-decoration:none !important; 
+}
+
+.border-bottom-ct {
+    border-bottom: 1px solid #302f5d !important;
 }

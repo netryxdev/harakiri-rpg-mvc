@@ -13,7 +13,7 @@
                     @for (var i = 0; i < Model.imgs.Count; i++)
                     {
                         var i1 = i;
-                        <div id="@($"container{i1}")" class="col-sm-3 d-flex flex-column align-items-center"
+                        <div id="@($"container{i1}")" class="col-12 col-sm-3 d-flex flex-column align-items-center"
                              style="display: @(string.IsNullOrEmpty(Model.imgs[i1].url_img_char) ? "none" : "flex");
                     justify-content: center;">
 
@@ -23,16 +23,14 @@
                  object-fit: contain; border: 1px solid #ddd; padding: 5px;" />
 
                             <!-- Nome da imagem -->
-                            <span class="text-center mt-2">@Model.imgs[i1].nm_img_char</span>
+                            <span class="text-center mt-2 mb-4">@Model.imgs[i1].nm_char_tipo</span>
                         </div>
                     }
                 </div>
             </div>
             @*Aqui vai ser um if que quando selecionar, mostra a descricao equivalente*@
             @*Possivelmente precisara usar JS aqui para fazer isso acontecer com display none *@
-            <div class="row">
-                <span>@Model.imgs.</span>
-            </div>
+
             <div class="row d-flex justify-content-center">
                 <div class="form-group col-sm-6">
                     <label asp-for="@Model.NovoChar.nm_char" class="d-flex justify-content-center mb-1"></label>

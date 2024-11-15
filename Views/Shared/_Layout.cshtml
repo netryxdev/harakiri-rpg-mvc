@@ -10,18 +10,13 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header class="bg-header-ct">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom-ct
-             box-shadow mb-3">
+    <header class="bg-header-ct border-bottom-ct">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light
+             box-shadow">
             <div class="container d-flex justify-content-center mt-1">
                 <a class="title-color text-center" asp-area="" asp-controller="Home" asp-action="Index">
-                    <h2>Harakiri - Text Browser RPG</h2>
+                    <h2>Harakiri</h2>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
         </nav>
     </header>
@@ -40,17 +35,18 @@
         <!-- Adicione mais links aqui -->
     </div>
     <!-- Menu Lateral FIM -->
-
+    <div class="container">
         <main role="main" class="">
             <br />
             @RenderBody()
         </main>
-
-    <footer class="footer text-muted">
-        <div class="container">
-                &copy; 2024 - harakiri rpg 
+        <br />
+            <hr />
+        <div class="container mb-1">
+            <p class="text-center mb-1">&copy; @DateTime.Now.Year harakiri rpg</p>
         </div>
-    </footer>
+        <br />
+    </div>
 
     <!--Scripts-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

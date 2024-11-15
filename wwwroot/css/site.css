@@ -13,9 +13,8 @@ html {
 }
 
 html, body {
-/*    position: relative;*/
+    /*    position: relative;*/
     height: 100vh;
-    width: 100vw;
     margin: 0;
     padding: 0;
 }
@@ -26,29 +25,36 @@ header {
 }
 
 body {
-/*    margin-bottom: 60px;*/
+    display: flex;
+    flex-direction: column;
+    /*    margin-bottom: 60px;*/
     background-color: #070223; /* Roxo escuro para o fundo */
     color: #d4d4d4; /* Cinza claro para o texto */
     height: 100vh;
 }
 
 main {
-    height: 90%;
+    /*    height: 90vh;*/
+    height: 100%;
+/*    width: 90vw*/
+    /*    width: 90%;*/
+    flex-grow: 1;
+}
+
+footer {
+    /*    background-color: #2C2E32;*/
+    color: #7939E1;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    height: 100%;
+    flex: 1;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2.5rem;
     text-align: center;
 }
 

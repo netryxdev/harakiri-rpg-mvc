@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using harakiri_rpg.Models.Pages.Cadastro;
 using harakiri_rpg.Services.Interfaces;
 using harakiri_rpg.Models.DB;
+using Microsoft.AspNetCore.Authorization;
 
 namespace harakiri_rpg.Controllers
 {
-    public class CadastroController : Controller
+    [AllowAnonymous]
+    public class CadastroController : BaseController
     {
         private readonly ApplicationDbContext _context;
         private readonly IUsuarioService _usuarioService;
@@ -32,10 +34,13 @@ namespace harakiri_rpg.Controllers
             if(!ModelState.IsValid)
             {
                 // desenvolver um display message generico para erro
+                DisplayError("Ocorreu um erro.");
+                return View(model);
             }
 
             _usuarioService.CriarUsuario(model);
 
+            DisplayMessage("Besta Fera");
             // desenvolver um display message generico para SUCESSO
 
             return RedirectToAction("Index");

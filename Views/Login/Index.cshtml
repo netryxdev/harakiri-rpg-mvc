@@ -1,18 +1,26 @@
-﻿@model harakiri_rpg.Models.Pages.Login.LoginViewModel;
+﻿@model harakiri_rpg.Models.Pages.Login.LoginViewModel
 
-<h2>Login</h2>
+    <div class="centralize">
+        <div class="d-flex justify-content-center align-items-center bg-main-ct">
+            <div class="card card-ct p-4" style="width: 22rem; height:100%">
+                <h2 class="text-center mb-4 title-primary">Login</h2>
 
-<form asp-action="Login" method="post">
-    <div class="form-group">
-        <label asp-for="nm_email"></label>
-        <input asp-for="nm_email" class="form-control" />
+                <form asp-controller="Login" asp-action="Index" method="post">
+                    <div class="form-group">
+                        <label asp-for="nm_usuario"></label>
+                        <input asp-for="nm_usuario" class="form-control bg-input-ct text-white" />
+                    </div>
+                    <div class="form-group mt-3">
+                        <label asp-for="nm_senha"></label>
+                        <input asp-for="nm_senha" type="password" class="form-control bg-input-ct text-white" />
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input asp-for="dv_lembrar" type="checkbox" checked /> Lembrar-me
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-4">Entrar</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="nm_senha"></label>
-        <input asp-for="nm_senha" type="password" class="form-control" />
-    </div>
-    <div class="form-group">
-        <input asp-for="dv_lembrar" /> Lembrar-me
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+

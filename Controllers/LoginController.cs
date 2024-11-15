@@ -1,53 +1,94 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using harakiri_rpg.Models.Pages.Login;
+using harakiri_rpg.Models.DB;
+using harakiri_rpg.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace harakiri_rpg.Controllers
 {
-    public class LoginController : Controller
+    [AllowAnonymous]
+    public class LoginController : BaseController
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ApplicationDbContext _context;
+        private readonly IUsuarioService _usuarioService;
 
-        public LoginController(SignInManager<IdentityUser> signInManager)
+        public LoginController(ApplicationDbContext context, IUsuarioService usuarioService)
         {
-            _signInManager = signInManager;
+            _context = context;
+            _usuarioService = usuarioService;
         }
 
-        // GET: Login
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View();
         }
 
-        // POST: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Index(LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var result = await _signInManager.PasswordSignInAsync(model.nm_email, model.nm_senha, model.dv_lembrar, lockoutOnFailure: false);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                else
+                if (!ModelState.IsValid)
                 {
                     ModelState.AddModelError(string.Empty, "Tentativa de login inválida.");
                     return View(model);
                 }
+
+                var usuario = _context.Usuarios.AsNoTracking().Where(x => x.nm_usuario == model.nm_usuario &&
+                    x.nm_senha == model.nm_senha).FirstOrDefault();
+
+                if (usuario is null)
+                {
+                    DisplayError("Login e/ou Senha incorreto(s).");
+                    return View(model);
+                }
+
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, model.nm_usuario)
+                };
+
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = model.dv_lembrar // O cookie será persistente
+                };
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+
+                DisplayMessage("Login Efetuado!");
+
+                return RedirectToAction("Index", "CriacaoChar");
             }
-            return View(model);
+            catch (Exception e)
+            {
+                DisplayError(e.Message);
+                return RedirectToAction("Index");
+            }
+
         }
 
-        // POST: Logout
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            try
+            {
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+                DisplayMessage("Deslogado com sucesso!");
+                return RedirectToAction("Index", "Login");
+            }
+            catch (Exception e)
+            {
+                DisplayError(e.Message);
+                return RedirectToAction("Index");
+            }
         }
     }
 }

@@ -87,3 +87,18 @@
 .border-bottom-ct {
     border-bottom: 1px solid #302f5d !important;
 }
+
+.border-left-ct {
+    border-left: 1px solid #302f5d !important;
+}
+
+.title-primary {
+    color: #4752C4;
+}
+
+.container-ct {
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}

@@ -3,6 +3,7 @@ using harakiri_rpg.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 using harakiri_rpg.Models.DB;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 DotNetEnv.Env.Load();
+
+// Configurar autenticação com cookies
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/Index"; // Página de login
+        options.LogoutPath = "/Login/Logout"; // Página de logout
+        options.ExpireTimeSpan = TimeSpan.FromDays(7); // Expiração do cookie
+        options.SlidingExpiration = true; // Renovação automática do cookie
+    });
+
 
 var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 

@@ -1,13 +1,15 @@
 ﻿using harakiri_rpg.Models.DB;
 using harakiri_rpg.Models.Pages.CriacaoChar;
 using harakiri_rpg.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace harakiri_rpg.Controllers
 {
-    public class CriacaoCharController : Controller
+    [Authorize]
+    public class CriacaoCharController : BaseController
     {
         private readonly ApplicationDbContext _context;
 
@@ -34,7 +36,6 @@ namespace harakiri_rpg.Controllers
              .OrderBy(x => x.id_char_tipo)
              .ToList();
 
-            // Cria o modelo para enviar à view
             var model = new CriacaoCharViewModel
             {
                 imgs = imgs

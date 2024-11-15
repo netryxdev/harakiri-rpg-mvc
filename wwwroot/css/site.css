@@ -27,18 +27,21 @@ header {
 body {
     display: flex;
     flex-direction: column;
-    /*    margin-bottom: 60px;*/
     background-color: #070223; /* Roxo escuro para o fundo */
     color: #d4d4d4; /* Cinza claro para o texto */
     height: 100vh;
 }
 
 main {
-    /*    height: 90vh;*/
+    height: 90vh;
+}
+
+.centralize {
+    /*min-height: 50vh;*/ /* Garante altura mínima */
     height: 100%;
-/*    width: 90vw*/
-    /*    width: 90%;*/
-    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
@@ -54,15 +57,12 @@ footer {
     flex: 1;
 }
 
-footer {
-    text-align: center;
-}
-
 /* Estilo do Menu Lateral */
+/* Menu lateral estilo padrão */
 #sidebar {
-    width: 0;
+    width: 250px;
     height: 100vh;
-    background-color: #1c1e21;
+    background-color: #1F1C40;
     position: fixed;
     top: 0;
     left: 0;
@@ -70,11 +70,8 @@ footer {
     transition: 0.5s;
     padding-top: 60px;
     z-index: 1000;
+/*    border-left: 1px solid #302f5d !important;*/
 }
-
-    #sidebar.expanded {
-        width: 250px;
-    }
 
     #sidebar a {
         padding: 10px 15px;
@@ -89,25 +86,45 @@ footer {
             color: #fff;
         }
 
-#main-content {
-    transition: margin-left 0.5s;
+/* Esconde o menu lateral no mobile */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 0;
+        overflow-y: hidden;
+    }
+
+        #sidebar.expanded {
+            width: 200px;
+        }
+
+    #menu-btn {
+        display: block;
+    }
 }
 
-/* Botão de Menu */
+/* Botão do Menu Hambúrguer */
 #menu-btn {
     font-size: 30px;
     color: #1c1e21;
     position: absolute;
-    top: 7px;
+/*    top: 15px;*/
     left: 20px;
     cursor: pointer;
     z-index: 1100;
+    display: none; /* Esconde no desktop */
 }
 
-/* Ajuste para mobile */
+/* Ajuste para o conteúdo principal */
+#main-content {
+    margin-left: 250px; /* Ajuste de margem para o menu lateral no desktop */
+    transition: margin-left 0.5s;
+}
+
+/* Modo mobile ajusta margem */
 @media (max-width: 768px) {
-    #sidebar.expanded {
-        width: 200px;
+    #main-content {
+        margin-left: 0;
     }
 }
+
 /* Estilo do Menu Lateral FIM */

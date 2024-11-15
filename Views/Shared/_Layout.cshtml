@@ -8,44 +8,57 @@
     <link rel="stylesheet" href="~/css/harakiri-theme.css" />
     <link rel="stylesheet" href="~/harakiri_rpg.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
-    <header class="bg-header-ct border-bottom-ct">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light
-             box-shadow">
-            <div class="container d-flex justify-content-center mt-1">
-                <a class="title-color text-center" asp-area="" asp-controller="Home" asp-action="Index">
-                    <h2>Harakiri</h2>
-                </a>
-            </div>
-        </nav>
-    </header>
-    <!-- Conteúdo Principal
 
-    <!-- Botão do Menu Hambúrguer -->
-    <div id="menu-btn" class="title-color" onclick="toggleSidebar()">&#9776;</div>
+    <!-- Botão do Menu Hambúrguer para mobile -->
+    <div id="menu-btn" class="title-color " onclick="toggleSidebar()">&#9776;</div>
 
     <!-- Menu Lateral -->
-    <div id="sidebar">
-        <a href="javascript:void(0)" onclick="toggleSidebar()" class="text-end text-light p-2">&times;</a>
-        <a asp-controller="Missions" asp-action="Index">Ver Missões</a>
+    <div id="sidebar" class="d-flex flex-column border-left-ct">
+        <a href="javascript:void(0)" onclick="toggleSidebar()" class="text-end text-light p-2 d-md-none">&times;</a>
+        <a asp-controller="Login" asp-action="Index">Login</a>
+        <a asp-controller="Cadastro" asp-action="Index">Cadastro</a>
+        <a asp-controller="Missions" asp-action="Index">Missões</a>
         <a asp-controller="Profile" asp-action="Index">Perfil</a>
-        <a asp-controller="Cadastro" asp-action="Index">Cadastrar</a>
         <a asp-controller="CriacaoChar" asp-action="Index">Criar Personagem</a>
-        <!-- Adicione mais links aqui -->
     </div>
-    <!-- Menu Lateral FIM -->
-    <div class="container">
-        <main role="main" class="">
-            <br />
+
+    @*fazer controle de visualizacao do menu, olhar chat harakiri Dev no chatgpt*@
+
+    @*@{
+        var menuItems = Context.Items["MenuItems"] as List<MenuItem>;
+    }
+
+    <div id="sidebar" class="d-flex flex-column border-left-ct">
+        <a href="javascript:void(0)" onclick="toggleSidebar()" class="text-end text-light p-2 d-md-none">&times;</a>
+        @if (menuItems != null)
+        {
+            @foreach (var item in menuItems)
+            {
+                <a asp-controller="@item.Controller" asp-action="@item.Action">@item.DisplayName</a>
+            }
+        }
+    </div>*@
+
+
+    <div class="" id="main-content">
+        <header class="bg-header-ct border-bottom-ct">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+                <div class="container d-flex justify-content-center mt-1">
+                    <a class="title-color text-center" asp-area="" asp-controller="Home" asp-action="Index">
+                        <h2>Harakiri</h2>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <partial name="_Toast" /> <!-- Notificacao de Toast -->
+        <main role="main">
             @RenderBody()
         </main>
         <br />
-            <hr />
-        <div class="container mb-1">
-            <p class="text-center mb-1">&copy; @DateTime.Now.Year harakiri rpg</p>
-        </div>
-        <br />
+
     </div>
 
     <!--Scripts-->
@@ -55,21 +68,8 @@
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById("sidebar");
-            const mainContent = document.getElementById("main-content");
-
-            // Alterna a classe expanded
             sidebar.classList.toggle("expanded");
-
-            // Ajusta o conteúdo principal quando o menu está expandido
-            if (sidebar.classList.contains("expanded")) {
-                mainContent.style.marginLeft = "250px";
-            } else {
-                mainContent.style.marginLeft = "0";
-            }
         }
     </script>
-    <!--Scripts FIM -->
-
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

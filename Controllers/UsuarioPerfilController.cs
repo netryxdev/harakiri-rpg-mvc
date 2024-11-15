@@ -6,7 +6,7 @@ using harakiri_rpg.Models.Pages.UsuarioPerfil;
 
 namespace harakiri_rpg.Controllers
 {
-    public class UsuarioPerfilController : Controller
+    public class UsuarioPerfilController : BaseController
     {
         private readonly UserManager<IdentityUser> _userManager;
 

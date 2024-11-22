@@ -18,29 +18,36 @@
     <!-- Menu Lateral -->
     <div id="sidebar" class="d-flex flex-column border-left-ct">
         <a href="javascript:void(0)" onclick="toggleSidebar()" class="text-end text-light p-2 d-md-none">&times;</a>
-        <a asp-controller="Login" asp-action="Index">Login</a>
-        <a asp-controller="Cadastro" asp-action="Index">Cadastro</a>
-        <a asp-controller="Missions" asp-action="Index">Missões</a>
-        <a asp-controller="Profile" asp-action="Index">Perfil</a>
-        <a asp-controller="CriacaoChar" asp-action="Index">Criar Personagem</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="CriacaoChar" asp-action="Index">Criar Personagem</a>
+            <a asp-controller="Missions" asp-action="Index">Missões</a>
+            <a asp-controller="Profile" asp-action="Index">Perfil</a>
+            <a asp-controller="Login" asp-action="Logout">Logout</a>
+        }
+        else
+        {
+            <a asp-controller="Login" asp-action="Index">Login</a>
+            <a asp-controller="Cadastro" asp-action="Index">Cadastro</a>
+        }
     </div>
 
     @*fazer controle de visualizacao do menu, olhar chat harakiri Dev no chatgpt*@
 
     @*@{
-        var menuItems = Context.Items["MenuItems"] as List<MenuItem>;
-    }
-
-    <div id="sidebar" class="d-flex flex-column border-left-ct">
-        <a href="javascript:void(0)" onclick="toggleSidebar()" class="text-end text-light p-2 d-md-none">&times;</a>
-        @if (menuItems != null)
-        {
-            @foreach (var item in menuItems)
-            {
-                <a asp-controller="@item.Controller" asp-action="@item.Action">@item.DisplayName</a>
-            }
+            var menuItems = Context.Items["MenuItems"] as List<MenuItem>;
         }
-    </div>*@
+
+        <div id="sidebar" class="d-flex flex-column border-left-ct">
+            <a href="javascript:void(0)" onclick="toggleSidebar()" class="text-end text-light p-2 d-md-none">&times;</a>
+            @if (menuItems != null)
+            {
+                @foreach (var item in menuItems)
+                {
+                    <a asp-controller="@item.Controller" asp-action="@item.Action">@item.DisplayName</a>
+                }
+            }
+        </div>*@
 
 
     <div class="" id="main-content">

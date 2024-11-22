@@ -11,6 +11,6 @@ namespace harakiri_rpg.Models.Pages.CriacaoChar
         [Required] 
         public int id_char_tipo { get; set; }
         public int id_img_char { get; set; }
-
+        public int id_usuario { get; set; }
     }
 }

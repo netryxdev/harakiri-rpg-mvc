@@ -9,5 +9,6 @@ namespace harakiri_rpg.Models.Entities
         [Key]
         public int id_char_tipo { get; set; }
         public string nm_char_tipo { get; set; } = string.Empty;
+        public string nm_char_tipo_desc { get; set; } = string.Empty;
     }
 }

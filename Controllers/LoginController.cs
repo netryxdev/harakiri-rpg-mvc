@@ -40,8 +40,8 @@ namespace harakiri_rpg.Controllers
                     return View(model);
                 }
 
-                var usuario = _context.Usuarios.AsNoTracking().Where(x => x.nm_usuario == model.nm_usuario &&
-                    x.nm_senha == model.nm_senha).FirstOrDefault();
+                var usuario = _context.Usuarios.AsNoTracking().FirstOrDefault(x => x.nm_usuario == model.nm_usuario &&
+                    x.nm_senha == model.nm_senha);
 
                 if (usuario is null)
                 {
@@ -51,7 +51,9 @@ namespace harakiri_rpg.Controllers
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, model.nm_usuario)
+                    new Claim(ClaimTypes.Name, model.nm_usuario),
+                    new Claim("id_usuario", usuario.id_usuario.ToString()),
+                    new Claim("nm_usuario", usuario.nm_usuario.ToString()),
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -74,7 +76,7 @@ namespace harakiri_rpg.Controllers
 
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             try

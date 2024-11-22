@@ -12,6 +12,7 @@ namespace harakiri_rpg.Models.DB
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<ImgChar> ImgsChar { get; set; }
         public DbSet<CharTipo> CharTipos { get; set; }
+        public DbSet<UsuarioChar> UsuarioChars { get; set; }
         //public DbSet<NinjaTipo> NinjaTipos { get; set; }
         //public DbSet<UsuarioChar> UsuarioChars { get; set; }
         //public DbSet<MissaoTipo> MissaoTipos { get; set; }

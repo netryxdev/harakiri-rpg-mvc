@@ -19,13 +19,11 @@ namespace harakiri_rpg.Controllers
             _usuarioService = usuarioService;
         }
 
-        // GET: Register
         public IActionResult Index()
         {
             return View();
         }
 
-        // POST: Register
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(CadastroViewModel model)

@@ -8,5 +8,6 @@ namespace harakiri_rpg.Models.Pages.CriacaoChar
         public string nm_img_char { get; set; } = string.Empty;
         public string url_img_char { get; set; } = string.Empty;
         public string nm_char_tipo { get; set; } = string.Empty;
+        public string nm_char_tipo_desc { get; set; } = string.Empty;
     }
 }
